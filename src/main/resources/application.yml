@@ -1,0 +1,26 @@
+spring:
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cmfz?characterEncoding=UTF-8
+    username: root
+    password: root
+
+  servlet:
+    multipart:
+      max-file-size: 10MB #上传最大文件10M
+      max-request-size: 50MB #同时多个上传文件最大
+server:
+  port: 5946
+  servlet:
+    context-path: /c
+    jsp:
+      init-parameters:
+        development: true
+mybatis:
+  mapper-locations: classpath:com/baizhi/mapper/*.xml
+  type-aliases-package: com.baizhi.entity
