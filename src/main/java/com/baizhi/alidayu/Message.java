@@ -30,7 +30,7 @@ public class Message {
         request.setMethod(MethodType.POST);
         //必填:待发送手机号。支持以逗号分隔的形式进行批量调用，批量上限为1000个手机号码,批量调用相对于单条调用及时性稍有延迟,验证码类型的短信推荐使用单条调用的方式；发送国际/港澳台消息时，接收号码格式为国际区号+号码，如“85200000000”
 //        13949121813,15732572971,13331025260,13527628084,
-        request.setPhoneNumbers("15520109171");
+        request.setPhoneNumbers("15188219385");
         //必填:短信签名-可在短信控制台中找到
         request.setSignName("天地方圆");
         //必填:短信模板-可在短信控制台中找到，发送国际/港澳台消息时，请使用国际/港澳台短信模版
@@ -55,7 +55,7 @@ public class Message {
     public static void main(String[] args) {
         try {
             System.out.println("开始发送短信");
-            sendMessage("12345");
+            sendMessage("111111111111");
             System.out.println("短信发送成功");
         } catch (Exception e) {
             System.out.println("短信发送失败");
