@@ -3,6 +3,7 @@ package com.baizhi;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.baizhi.aop.RedisTemplate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -41,5 +42,4 @@ public class CmfzApplication{
         //redis ip 端口
         return new Jedis("192.168.40.129", 6379);
     }
-
 }

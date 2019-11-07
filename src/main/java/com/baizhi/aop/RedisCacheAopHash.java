@@ -19,9 +19,10 @@ import java.lang.reflect.Method;
 /**
  * 自定义注解后  配置通知使注解生效
  * 此处用Redis的Hash类型
+ * 相对String类型存储，直接找寻类，然后根据类找方法
  */
 @Configuration  //配置
-@Aspect //通知
+@Aspect //切面通知
 public class RedisCacheAopHash {
     @Autowired
     private Jedis jedis;
@@ -30,9 +31,9 @@ public class RedisCacheAopHash {
     @Around("execution(* com.baizhi.service.serviceImpl.*.queryAll(..))")
     //因为返回值是所有类型 所以用object
     public Object around(ProceedingJoinPoint point) throws Throwable {
-//          判断方法上是否有RedisCache
-//          如果有，则需要缓存
-//          如果没有，直接方法放行
+        // 判断方法上是否有RedisCache
+        // 如果有，则需要缓存
+        //  如果没有，直接方法放行
 
         //获取目标方法所在的 类对象
         //target:com.baizhi.service.impl.BannerServiceImpl@193b3b18
@@ -41,7 +42,7 @@ public class RedisCacheAopHash {
         MethodSignature methodSignature = (MethodSignature) point.getSignature();
         //获取目标方法的参数值
         Object[] args = point.getArgs();
-
+        //获取方法
         Method method = methodSignature.getMethod();
         //判断是否有rediscache注解
         boolean b = method.isAnnotationPresent(RedisCache.class);
@@ -74,9 +75,10 @@ public class RedisCacheAopHash {
             stringBuilder.append(")");
 
             //。。。。与string类型的不同之处。。。。。
+            //hexists:检查给定键是否存在于散列中 判断字段是否存在
 
             if (jedis.hexists(className, stringBuilder.toString())) {
-                //判断redis缓存是否存在这个key
+                //判断redis缓存是否存在这个key,hget:基于给定的键值获取哈希值 获取键的值
                 String result = jedis.hget(className, stringBuilder.toString());
                 //返回json类型
                 return JSONObject.parse(result);

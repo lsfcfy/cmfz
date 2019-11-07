@@ -161,15 +161,20 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
+        <!--===================Redis的一种依赖=========================-->
         <!--加入jedis-->
-
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>3.0.0</version>
         </dependency>
+        <!--==================Redis第二种存储依赖，两种依赖相互独立==============================-->
+        <!--使用restTemplate-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
     </dependencies>
-
     <!--goeasy仓库-->
     <repositories>
         <repository>

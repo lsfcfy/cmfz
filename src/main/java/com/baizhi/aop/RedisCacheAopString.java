@@ -24,7 +24,7 @@ import java.util.Set;
 
 //由于都是测试缓存 此处在测试RedisCacheAopHash 时先将注解注释
 //@Configuration  //配置
-//@Aspect //通知
+//@Aspect //切面通知
 public class RedisCacheAopString {
     @Autowired
     private Jedis jedis;
@@ -33,9 +33,9 @@ public class RedisCacheAopString {
     @Around("execution(* com.baizhi.service.serviceImpl.*.queryAll(..))")
     //因为返回值是所有类型 所以用object
     public Object around(ProceedingJoinPoint point) throws Throwable {
-//          判断方法上是否有RedisCache
-//          如果有，则需要缓存
-//          如果没有，直接方法放行
+        // 判断方法上是否有RedisCache
+        // 如果有，则需要缓存
+        // 如果没有，直接方法放行
 
         //获取目标方法所在的 类对象
         //target:com.baizhi.service.impl.BannerServiceImpl@193b3b18
