@@ -79,7 +79,7 @@ public class AlbumServiceImpl implements AlbumService {
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS)
-    public Map<String, Object> queryAllAlbum(Integer page, Integer rows) {
+    public Map<String, Object> queryAll(Integer page, Integer rows) {
         Album album = new Album();
         RowBounds rowBounds = new RowBounds((page-1)*rows,rows);
         List<Album> list = albumDao.selectByRowBounds(album,rowBounds);

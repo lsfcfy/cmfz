@@ -16,5 +16,5 @@ public interface BannerService {
 
     //根据当前页和当前行数查所有
    // List<Banner> queryAll(Banner banner,Integer page,Integer rows);
-    Map<String, Object> selectAll(Banner banner,Integer page, Integer rows);
+    Map<String, Object> queryAll(Banner banner, Integer page, Integer rows);
 }

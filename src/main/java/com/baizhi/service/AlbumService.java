@@ -15,5 +15,5 @@ public interface AlbumService {
     //添加章节时需要指定属于哪个专辑
     Album queryOne(String id);
 
-    Map<String,Object> queryAllAlbum(Integer page, Integer rows);
+    Map<String, Object> queryAll(Integer page, Integer rows);
 }

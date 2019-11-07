@@ -40,12 +40,7 @@
             <version>5.1.38</version>
         </dependency>
 
-        <!--aop：切面编程-->
-       <!-- <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
--->
+
         <!--通用mapper-->
         <dependency>
             <groupId>tk.mybatis</groupId>
@@ -160,9 +155,22 @@
             <artifactId>goeasy-sdk</artifactId>
             <version>0.3.9</version>
         </dependency>
+
+        <!--springboot面向切面aop的编程-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <!--加入jedis-->
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.0.0</version>
+        </dependency>
     </dependencies>
 
-        <!--goeasy仓库-->
+    <!--goeasy仓库-->
     <repositories>
         <repository>
             <id>goeasy</id>

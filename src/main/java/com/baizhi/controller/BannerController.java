@@ -82,7 +82,7 @@ public class BannerController {
     }
     @RequestMapping("queryAll")
     public Map<String, Object> selectAll(Banner banner,Integer page, Integer rows) {
-        Map<String, Object> map = bannerService.selectAll(banner,page, rows);
+        Map<String, Object> map = bannerService.queryAll(banner, page, rows);
         return map;
 
     }

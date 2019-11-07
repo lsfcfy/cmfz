@@ -1,6 +1,8 @@
 package com.baizhi.controller;
 
 import com.alibaba.druid.util.StringUtils;
+import com.baizhi.annotation.ClearRedisCache;
+import com.baizhi.annotation.RedisCache;
 import com.baizhi.dao.StarDao;
 import com.baizhi.entity.Album;
 import com.baizhi.entity.Star;
@@ -26,7 +28,7 @@ public class AlbumController {
     @Autowired
     private AlbumService albumService;
 
-
+    @ClearRedisCache
     @RequestMapping("edit")
     public Map<String,Object> edit(String oper, HttpServletRequest request,Album album){
         Map<String,Object> map = new HashMap<>();
@@ -51,6 +53,7 @@ public class AlbumController {
         return map;
     }
 
+    @ClearRedisCache
     @RequestMapping("upload")
     public Map<String,Object> upload(MultipartFile cover, String id, HttpServletRequest request) {
         Map<String, Object> map = new HashMap<>();
@@ -71,9 +74,11 @@ public class AlbumController {
         }
         return  map;
     }
-        @RequestMapping("queryAll")
+
+    @RedisCache
+    @RequestMapping("queryAll")
     public Map<String,Object> queryAll(Integer page,Integer rows){
-        Map<String, Object> map = albumService.queryAllAlbum(page, rows);
+        Map<String, Object> map = albumService.queryAll(page, rows);
         return map;
     }
 }
